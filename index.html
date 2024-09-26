@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator project</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+        <div id="main">
+            <div id="box">
+                <input type="text" id="display" readonly>
+                    <div id="buttons">
+                        <button class="button" onclick="currentDisplay='';document.querySelector('#display').value = currentDisplay;">c</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'1';document.querySelector('#display').value = currentDisplay;">1</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'2';document.querySelector('#display').value = currentDisplay;">2</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'3';document.querySelector('#display').value = currentDisplay;">3</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'4';document.querySelector('#display').value = currentDisplay;">4</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'5';document.querySelector('#display').value = currentDisplay;">5</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'6';document.querySelector('#display').value = currentDisplay;">6</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'7';document.querySelector('#display').value = currentDisplay;">7</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'8';document.querySelector('#display').value = currentDisplay;">8</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'9';document.querySelector('#display').value = currentDisplay;" >9</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'0';document.querySelector('#display').value = currentDisplay;">0</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'+';document.querySelector('#display').value = currentDisplay;">+</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'-';document.querySelector('#display').value = currentDisplay;">-</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'*';document.querySelector('#display').value = currentDisplay;">*</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'/';document.querySelector('#display').value = currentDisplay;">/</button>
+                        <button class="button" onclick="let result = eval(currentDisplay);currentDisplay=result;document.querySelector('#display').value = currentDisplay;">=</button>
+                        <button class="button" onclick="currentDisplay=currentDisplay+'.';document.querySelector('#display').value = currentDisplay;">.</button>
+                        
+                        
+                    </div>
+                    
+
+            </div>
+
+        </div>
+        <script>
+           let currentDisplay = '';
+           document.querySelector('#display').value = currentDisplay;
+        </script>
+        <style>
+            *{
+    padding: 0;
+    margin: 0;
+
+}
+html,body{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#box{
+    height: 350px;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: rgb(194, 104, 167);
+ 
+}
+
+ 
+#display{
+    height: 29px;
+    width: 200px;
+    margin: 10px 23px;
+    border-radius: 15px;
+    
+}
+
+.button{
+    height: 50px;
+    width: 50px;
+    align-content: space-around;
+    align-content: space-between;
+    margin: 3px 3px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+
+}
+.button::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+
+}
+.button::before{
+    content: "";
+    background:linear-gradient(45deg,#ff0000 ,#ff7300 ,#fffB00 ,#48ff00 ,#00ffD5 ,#002Bff ,#ff00CB ,#ff00CB ,#ff0000 );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .10s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+@keyframes glowing{
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+.button:hover::before{
+    opacity: 1;
+}
+
+.button:active:after{
+    background: transparent;
+}
+.button:active{
+    color: #000;
+    font-weight: bold;
+}
+
+
+#buttons{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2px;
+}
+
+        </style>
+</body>
+</html>
